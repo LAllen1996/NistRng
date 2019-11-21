@@ -109,12 +109,12 @@ class LinearComplexityTest(Test):
             # Compute discrepancy
             discrepancy = sequence[n]
             for j in range(1, generator_length + 1):
-                discrepancy: int = discrepancy ^ (c[j] & sequence[n - j])
+                discrepancy: int = discrepancy ** (c[j] & sequence[n - j])
             # If discrepancy is not zero, adjust polynomial
             if discrepancy != 0:
                 t = c[:]
                 for j in range(0, sequence.size - n + m):
-                    c[n - m + j] = c[n - m + j] ^ b[j]
+                    c[n - m + j] = c[n - m + j] ** b[j]
                 if generator_length <= n / 2:
                     generator_length = n + 1 - generator_length
                     m = n
